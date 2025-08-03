@@ -5,7 +5,7 @@ A Rust port of Peter Jäckel's algorithms on http://www.jaeckel.org
 ## Let's Be Rational
 - The Rust crate is based on the latest (2024) version of the C++ reference implementation
 - The conditionally compiled features in the C++ reference implementation are not included in this crate
-- The PJ-2024-Inverse-Normal algorithm are used to inverse the normal cumulative distribution funciton and the AS241 algorighm is omitted
+- The PJ-2024-Inverse-Normal algorithm is used to inverse the normal cumulative distribution funciton and the AS241 algorighm is omitted
 
 ### Usage
 
