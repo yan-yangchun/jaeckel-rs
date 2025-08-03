@@ -1,0 +1,28 @@
+[package]
+name = "jaeckel"
+version = "0.1.0"
+edition = "2021"
+authors = ["Yan Yangchun"]
+description = "Rust port of Peter Jäckel's algorithms on http://www.jaeckel.org"
+license = "MIT"
+repository = "https://github.com/yan-yangchun/jaeckel-rs"
+keywords = ["finance", "black-scholes", "implied-volatility"]
+categories = ["mathematics", "finance", "algorithms"]
+
+[dev-dependencies]
+criterion = "0.7.0"
+
+[lib]
+name = "jaeckel"
+path = "src/lib.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+
+[[test]]
+name = "lets_be_rational"
+
+[[bench]]
+name = "lets_be_rational"
+harness = false
