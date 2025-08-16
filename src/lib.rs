@@ -142,6 +142,80 @@ pub use crate::normaldistribution::norm_pdf;
 /// Interpolated value at x
 pub use crate::rationalcubic::rational_cubic_interpolation;
 
+/// Calculate control parameter to fit second derivative at left side.
+///
+/// # Arguments
+/// * `x_l` - Left node x-coordinate
+/// * `x_r` - Right node x-coordinate
+/// * `y_l` - Left node y-coordinate
+/// * `y_r` - Right node y-coordinate
+/// * `d_l` - Left node derivative
+/// * `d_r` - Right node derivative
+/// * `second_derivative_l` - Target second derivative at left side
+///
+/// # Returns
+/// Control parameter r for rational cubic interpolation
+pub use crate::rationalcubic::rational_cubic_control_parameter_to_fit_second_derivative_at_left_side;
+
+/// Calculate control parameter to fit second derivative at right side.
+///
+/// # Arguments
+/// * `x_l` - Left node x-coordinate
+/// * `x_r` - Right node x-coordinate
+/// * `y_l` - Left node y-coordinate
+/// * `y_r` - Right node y-coordinate
+/// * `d_l` - Left node derivative
+/// * `d_r` - Right node derivative
+/// * `second_derivative_r` - Target second derivative at right side
+///
+/// # Returns
+/// Control parameter r for rational cubic interpolation
+pub use crate::rationalcubic::rational_cubic_control_parameter_to_fit_second_derivative_at_right_side;
+
+/// Calculate minimum rational cubic control parameter.
+///
+/// # Arguments
+/// * `d_l` - Left derivative
+/// * `d_r` - Right derivative
+/// * `s` - Slope between nodes
+/// * `prefer_shape_preservation_over_smoothness` - Prioritize shape preservation
+///
+/// # Returns
+/// Minimum control parameter to preserve desired shape properties
+pub use crate::rationalcubic::minimum_rational_cubic_control_parameter;
+
+/// Calculate convex rational cubic control parameter to fit second derivative at left side.
+///
+/// # Arguments
+/// * `x_l` - Left node x-coordinate
+/// * `x_r` - Right node x-coordinate
+/// * `y_l` - Left node y-coordinate
+/// * `y_r` - Right node y-coordinate
+/// * `d_l` - Left node derivative
+/// * `d_r` - Right node derivative
+/// * `second_derivative_l` - Target second derivative at left side
+/// * `prefer_shape_preservation_over_smoothness` - Prioritize shape preservation
+///
+/// # Returns
+/// Control parameter ensuring both second derivative fit and convexity
+pub use crate::rationalcubic::convex_rational_cubic_control_parameter_to_fit_second_derivative_at_left_side;
+
+/// Calculate convex rational cubic control parameter to fit second derivative at right side.
+///
+/// # Arguments
+/// * `x_l` - Left node x-coordinate
+/// * `x_r` - Right node x-coordinate
+/// * `y_l` - Left node y-coordinate
+/// * `y_r` - Right node y-coordinate
+/// * `d_l` - Left node derivative
+/// * `d_r` - Right node derivative
+/// * `second_derivative_r` - Target second derivative at right side
+/// * `prefer_shape_preservation_over_smoothness` - Prioritize shape preservation
+///
+/// # Returns
+/// Control parameter ensuring both second derivative fit and convexity
+pub use crate::rationalcubic::convex_rational_cubic_control_parameter_to_fit_second_derivative_at_right_side;
+
 /// Calculate Black-Scholes option price.
 ///
 /// Computes the undiscounted Black-Scholes price for a European option.
@@ -267,3 +341,26 @@ pub use crate::lets_be_rational::NormalisedVolga as normalised_volga;
 /// # Returns
 /// Total volatility s = σ√t
 pub use crate::lets_be_rational::NormalisedImpliedBlackVolatility as normalised_implied_black_volatility;
+
+/// Householder's third-order convergence factor for root finding.
+///
+/// # Arguments
+/// * `nu` - Newton step: -f/f'
+/// * `h_2` - Second derivative ratio: f''/f'
+/// * `h_3` - Third derivative ratio: f'''/f'
+///
+/// # Returns
+/// Householder convergence factor
+pub use crate::lets_be_rational::householder3_factor;
+
+/// Householder's fourth-order convergence factor for root finding.
+///
+/// # Arguments
+/// * `nu` - Newton step: -f/f'
+/// * `h_2` - Second derivative ratio: f''/f'
+/// * `h_3` - Third derivative ratio: f'''/f'
+/// * `h_4` - Fourth derivative ratio: f''''/f'
+///
+/// # Returns
+/// Householder convergence factor
+pub use crate::lets_be_rational::householder4_factor;

@@ -50,13 +50,14 @@ fn square(x: f64) -> f64 {
 }
 
 #[inline]
-fn householder3_factor(nu: f64, h_2: f64, h_3: f64) -> f64 {
+pub fn householder3_factor(nu: f64, h_2: f64, h_3: f64) -> f64 {
     (1.0 + 0.5 * h_2 * nu) / (1.0 + nu * (h_2 + h_3 * nu / 6.0))
 }
 
 #[inline]
-fn householder_factor(nu: f64, h_2: f64, h_3: f64) -> f64 {
-    householder3_factor(nu, h_2, h_3)
+pub fn householder4_factor(nu: f64, h_2: f64, h_3: f64, h_4: f64) -> f64 {
+    (1.0 + nu * (h_2 + nu * h_3 / 6.0)) /
+    (1.0 + nu * (1.5 * h_2 + nu * (h_2 * h_2 * 0.25 + h_3 / 3.0 + nu * h_4 / 24.0)))
 }
 
 #[inline]
@@ -998,7 +999,7 @@ fn lets_be_rational(beta: f64, thetax: f64, n: i32) -> f64 {
                     let mu = 6.0 * lambda * (1.0 + lambda);
                     let h_3 = b_h_3 + sq_bpob * (2.0 + mu) - bppob * 3.0 * otl;
 
-                    let householder_factor_value = householder_factor(nu, h_2, h_3);
+                    let householder_factor_value = householder3_factor(nu, h_2, h_3);
                     ds = nu * householder_factor_value;
                 }
             } else {
@@ -1009,7 +1010,7 @@ fn lets_be_rational(beta: f64, thetax: f64, n: i32) -> f64 {
                 let h_2 = x_square_over_s_cube - s * 0.25;
                 let h_3 = h_2 * h_2 - 3.0 * (x_square_over_s_cube / s) - 0.25;
 
-                ds = nu * householder_factor(nu, h_2, h_3);
+                ds = nu * householder3_factor(nu, h_2, h_3);
             }
 
             if b > beta && s < s_right {
