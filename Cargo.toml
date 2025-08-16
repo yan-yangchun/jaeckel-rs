@@ -1,6 +1,6 @@
 [package]
 name = "jaeckel"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 authors = ["Yan Yangchun"]
 description = "Rust port of Peter Jäckel's algorithms on http://www.jaeckel.org"

@@ -56,8 +56,8 @@ pub fn householder3_factor(nu: f64, h_2: f64, h_3: f64) -> f64 {
 
 #[inline]
 pub fn householder4_factor(nu: f64, h_2: f64, h_3: f64, h_4: f64) -> f64 {
-    (1.0 + nu * (h_2 + nu * h_3 / 6.0)) /
-    (1.0 + nu * (1.5 * h_2 + nu * (h_2 * h_2 * 0.25 + h_3 / 3.0 + nu * h_4 / 24.0)))
+    (1.0 + nu * (h_2 + nu * h_3 / 6.0))
+        / (1.0 + nu * (1.5 * h_2 + nu * (h_2 * h_2 * 0.25 + h_3 / 3.0 + nu * h_4 / 24.0)))
 }
 
 #[inline]
