@@ -20,9 +20,6 @@ path = "src/lib.rs"
 opt-level = 3
 lto = true
 
-[[test]]
-name = "lets_be_rational"
-
 [[bench]]
 name = "lets_be_rational"
 harness = false
