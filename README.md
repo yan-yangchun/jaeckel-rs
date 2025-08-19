@@ -1,6 +1,6 @@
 # Jaeckel
 
-A Rust port of Peter Jäckel's algorithms on http://www.jaeckel.org
+A Rust port of Peter Jäckel's algorithms
 
 ## Let's Be Rational
 - The Rust crate is based on the latest (2024) version of the C++ reference implementation
